@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gaia Sprout - Registration & Login</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #A3D2F0; /* Background color */
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background-color: #FFFFFF; /* White container */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+    h2 {
+      text-align: center;
+      color: #40a5e4;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 5px;
+      color: #40a5e4;
+      font-weight: bold;
+    }
+    input, select {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+    }
+    button {
+      padding: 10px;
+      background-color: #A3D2F0;
+      border: none;
+      border-radius: 4px;
+      color: #333;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .toggle-link {
+      text-align: center;
+      margin-top: 10px;
+      color: #333;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Registration Form -->
+  <div class="container" id="registrationForm">
+    <h2>Register</h2>
+    <form id="regForm">
+      <label for="userRole">I am a:</label>
+      <select id="userRole" required>
+        <option value="">-- Select Role --</option>
+        <option value="patient">Patient</option>
+        <option value="doctor">Doctor/Nurse</option>
+        <option value="admin">Admin</option>
+      </select>
+      
+      <label for="regName">Name</label>
+      <input type="text" id="regName" placeholder="Enter your name" required>
+      
+      <label for="regEmail">Email</label>
+      <input type="email" id="regEmail" placeholder="Enter your email" required>
+      
+      <label for="regPassword">Password</label>
+      <input type="password" id="regPassword" placeholder="Enter your password" required>
+      
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+      
+      <button type="submit">Register</button>
+    </form>
+    <div class="toggle-link" onclick="showLogin()">Already have an account? Login</div>
+  </div>
+
+  <!-- Login Form (initially hidden) -->
+  <div class="container hidden" id="loginForm">
+    <h2>Login</h2>
+    <form id="logForm">
+      <label for="logEmail">Email</label>
+      <input type="email" id="logEmail" placeholder="Enter your email" required>
+      
+      <label for="logPassword">Password</label>
+      <input type="password" id="logPassword" placeholder="Enter your password" required>
+      
+      <button type="submit">Login</button>
+    </form>
+    <div class="toggle-link" onclick="showRegister()">Don't have an account? Register</div>
+  </div>
+
+  <script>
+    // Utility: Show/hide forms
+    function showLogin() {
+      document.getElementById("registrationForm").classList.add("hidden");
+      document.getElementById("loginForm").classList.remove("hidden");
+    }
+    function showRegister() {
+      document.getElementById("loginForm").classList.add("hidden");
+      document.getElementById("registrationForm").classList.remove("hidden");
+    }
+    
+    // Registration Handler
+    document.getElementById("regForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const role = document.getElementById("userRole").value;
+      const name = document.getElementById("regName").value.trim();
+      const email = document.getElementById("regEmail").value.trim();
+      const password = document.getElementById("regPassword").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      
+      if(password !== confirmPassword) {
+        alert("Passwords do not match. Please try again.");
+        return;
+      }
+      
+      // Check if user already exists
+      if(localStorage.getItem(email)) {
+        alert("User already exists. Please login.");
+        showLogin();
+        return;
+      }
+      
+      // Create user object
+      const user = { role, name, email, password };
+      // Save user to localStorage (for demo)
+      localStorage.setItem(email, JSON.stringify(user));
+      alert("Registration successful! Please login.");
+      showLogin();
+    });
+    
+    // Login Handler
+    document.getElementById("logForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("logEmail").value.trim();
+      const password = document.getElementById("logPassword").value;
+      const storedUser = localStorage.getItem(email);
+      
+      if(!storedUser) {
+        alert("User not found. Please register first.");
+        showRegister();
+        return;
+      }
+      
+      const user = JSON.parse(storedUser);
+      if(user.password !== password) {
+        alert("Incorrect password. Please try again.");
+        return;
+      }
+      
+      // On successful login, redirect to a dashboard page (or home)
+      // For demo, we simply redirect to "dashboard.html" (adjust as needed)
+      window.location.href = "homepage.html";
+    });
+  </script>
+  <style>
+    /* Simple hidden class */
+    .hidden { display: none; }
+  </style>
+</body>
+</html>
