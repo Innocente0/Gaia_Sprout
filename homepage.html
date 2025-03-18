@@ -101,17 +101,17 @@
     }
     /* Main Content Box (Aligned Left) */
     .main-content {
-      background-color: #ffffff;
-      padding: 40px 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      width: 90%;
-      max-width: 600px;
-      margin: 40px 0 40px ; /* auto on right, left aligned */
-      text-align: left;
-      position: relative;
-      z-index: 1;
-    }
+  background-color: #ffffff;
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 600px;
+  margin: 40px auto; /* Centers the box horizontally */
+  text-align: left;
+  position: relative;
+  z-index: 1;}
+
     .main-content h1 {
       font-size: 36px;
       margin-bottom: 20px;
@@ -121,7 +121,7 @@
       margin-bottom: 20px;
     }
     .main-content .btn {
-      display: inline-block;
+      display: block;
       background-color: #a3d2f0;
       color: #000;
       padding: 12px 24px;
@@ -130,7 +130,7 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      margin-top: 20px;
+      margin: 20px auto;
     }
     .main-content .btn:hover {
       background-color: #40a5e4;
