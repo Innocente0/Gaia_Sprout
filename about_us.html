@@ -21,7 +21,7 @@
     }
     /* Full Background Image */
     .background-container {
-      background-image: url('https://i.pinimg.com/736x/d2/d8/04/d2d80404f4e6a658e2353211b174a16b.jpg');
+      background-color: #40a5e4;
       background-size: cover;
       background-position: center;
       position: fixed;
@@ -101,16 +101,13 @@
     }
     /* Main Content Box (Aligned Left) */
     .main-content {
-  background-color: #ffffff;
-  padding: 40px 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  width: 90%;
-  max-width: 600px;
-  margin: 40px auto; /* Centers the box horizontally */
-  text-align: left;
-  position: relative;
-  z-index: 1;}
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 
     .main-content h1 {
       font-size: 36px;
@@ -132,9 +129,7 @@
       cursor: pointer;
       margin: 20px auto;
     }
-    .main-content .btn:hover {
-      background-color: #40a5e4;
-    }
+    
   </style>
 </head>
 <body>
@@ -146,7 +141,7 @@
     <a href="homepage.html" class="logo" data-key="logoText">GAIA SPROUT</a>
     <ul>
       <li><a href="homepage.html" data-key="navHome">Home</a></li>
-      <li><a href="about_us.html" data-key="navAbout">About Us</a></li>
+      <li><a href="about.html" data-key="navAbout">About Us</a></li>
       <li><a href="contact.html" data-key="navContact">Contact Us</a></li>
       <li><a href="services.html" data-key="navServices">Services</a></li>
       <li>
@@ -166,20 +161,33 @@
     </ul>
   </nav>
   
-  <!-- Main Content Box on the Left -->
+  <!-- Main Content Container -->
   <div class="main-content">
-    <h1 data-key="mainHeading">
-      Welcome to Gaia Sprout Telemedicine: Revolutionizing Healthcare at Your Fingertips
-    </h1>
-    <p data-key="mainDescription">
-      Your trusted partner for seamless online medical consultation and comprehensive health services anytime, anywhere.
-    </p>
-    <p data-key="mainExtra">
-      Experience innovative care, personalized treatments, and cutting-edge telehealth solutions that empower you to live healthier.
-    </p>
-    <!-- Booking an Appointment Button -->
-    <button class="btn" id="bookingBtn" data-key="bookingButton" onclick="window.location.href='appointment.html'">Booking an appointment</button>
-  </div>
+    <!-- Section 1: Image Left, Text Right -->
+    <div class="flex-section">
+      <div class="image">
+        <img src="https://via.placeholder.com/500x300?text=Team+Photo" alt="Expert Team">
+      </div>
+      <div class="text">
+        <h2 data-key="section1Heading">Expert team committed to transform Healthcare at your fingertips</h2>
+        <p data-key="section1Text">
+          Our team of dedicated healthcare professionals and technology experts work tirelessly to deliver innovative telemedicine solutions, ensuring you receive quality care anytime, anywhere.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Section 2: Text Left, Image Right -->
+    <div class="flex-section reverse">
+        <div class="text">
+          <h2 data-key="section2Heading">The story of GAIA SPROUT</h2>
+          <p data-key="section2Text">
+            Born from a vision to revolutionize healthcare, GAIA SPROUT started as a small initiative and has grown into a trusted telemedicine provider, built on innovation, collaboration, and excellence in digital health.
+          </p>
+        </div>
+        <div class="image">
+          <img src="https://via.placeholder.com/500x300?text=Company+History" alt="Company History">
+        </div>
+      </div>
   
   <script>
     // Translation Data
