@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GAIA SPROUT</title>
+  <title>GAIA SPROUT - Services</title>
   <style>
     /* Reset */
     * {
@@ -97,11 +97,11 @@
     .hero {
       background: url('https://media.istockphoto.com/id/692438504/photo/workers-silhouette-in-hospital-corridor-unfocused-background.jpg?s=612x612&w=0&k=20&c=_nVNKilnDtdUYjD_FJ-KfKAgsm0dJX06KHOMA2wr4g8=') no-repeat center center/cover;
       height: 400px;
-      color: #000000;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      text-align: center;  
+      text-align: center;
+      color: #000;
     }
     .hero h1 {
       font-size: 48px;
@@ -110,55 +110,48 @@
     .hero p {
       font-size: 24px;
     }
-    /* Content Section with 3 pictures */
-    .content-section {
-      display: flex;
-      justify-content: space-around;
+    /* Services Section */
+    .services-section {
       padding: 40px 20px;
-      flex-wrap: wrap;
-      color: #000000;
-      /* More transparent teal */
       background: rgba(179, 217, 217, 0.5);
+      color: #000;
     }
-    .content-item {
-      width: 30%;
-      min-width: 250px;
+    .services-section h2 {
       text-align: center;
-      margin-bottom: 20px;
+      font-size: 36px;
+      margin-bottom: 30px;
     }
-    /* Added shadow and fixed height for consistent shape */
-    .content-item img {
+    .service-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .service-item.reverse {
+      flex-direction: row-reverse;
+    }
+    .service-image {
+      flex: 1;
+      min-width: 300px;
+      padding: 10px;
+    }
+    .service-image img {
       width: 100%;
-      height: 200px;            /* fixed height */
-      object-fit: cover;        /* preserve aspect ratio within the box */
-      margin-bottom: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* subtle shadow */
+      height: auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
-    .content-item h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
+    .service-content {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
     }
-    .content-item p {
+    .service-content h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .service-content p {
       font-size: 16px;
-    }
-    /* About Section */
-    .about {
-      padding: 40px 20px;
-      text-align: center;
-      /* More transparent white */
-      background: rgba(255, 255, 255, 0.5);
-    }
-    .about h2 {
-      margin-bottom: 20px;
-      font-size: 32px;
-      color: #000000;
-    }
-    .about p {
-      font-size: 18px;
-      max-width: 800px;
-      margin: 0 auto;
       line-height: 1.6;
-      color: #000000;
     }
     /* Footer */
     footer {
@@ -202,10 +195,11 @@
       nav a {
         margin: 5px;
       }
-      .content-section {
+      .service-item {
         flex-direction: column;
-        align-items: center;
-        color: #000;
+      }
+      .service-item.reverse {
+        flex-direction: column;
       }
     }
   </style>
@@ -217,7 +211,7 @@
   <header>
     <div class="header-left">
       <a href="index.html">
-        <img src="Images\Gaia Sprout Logo.png" alt="GAIA SPROUT Logo" class="logo">
+        <img src="Images/Gaia Sprout Logo.png" alt="GAIA SPROUT Logo" class="logo">
       </a>
     </div>
     <nav>
@@ -227,7 +221,6 @@
     </nav>
     <div class="header-center">
       <span class="language-icon">EN</span>
-
       <ul class="language-list">
         <li><a href="#">Kinyarwanda</a></li>
         <li><a href="#">French</a></li>
@@ -241,44 +234,80 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1>Welcome to GAIA SPROUT</h1>
-      <p>"Bridging critical gaps in healthcare for a healthier Rwanda."</p>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Our Services</h1>
+    <p>Empowering your health through innovative solutions.</p>
+  </section>
 
-    <!-- Content Section with 3 pictures -->
-    <section class="content-section">
-      <div class="content-item">
-        <img src="Images/heal1.jpg" alt="Mental Health Support Appointment">
-        <h3>Mental Health Support Appointment</h3>
-        <p>Expert consultations for mental well-being.</p>
+  <!-- Services Section -->
+  <section class="services-section">
+    <!-- Service 1: Medical Appointment -->
+    <div class="service-item">
+      <div class="service-image">
+        <img src="Images\service1.jpg" alt="Medical Appointment">
       </div>
-      <div class="content-item">
-        <img src="Images/heal3.jpg" alt="Chronic Disease Management">
-        <h3>Emergency Medical Response Integration</h3>
-        <p>Stay protected with real-time data from wearable devices, ensuring local responders are instantly notified and help arrives when you need it most.</p>
+      <div class="service-content">
+        <h3>Medical Appointment</h3>
+        <p>Schedule in-person or virtual appointments with our experienced healthcare professionals to address your general health needs.</p>
       </div>
-      <div class="content-item">
-        <img src="Images/heal2.jpg" alt="Home-Based Nursing">
-        <h3>Meal Planning and Weight Management</h3>
-        <p>Optimize your daily nutrition with personalized meal plans and strategies designed to maintain a healthy weight.</p>
-      </div>
-    </section>
+    </div>
 
-    <!-- About Project Section -->
-    <section class="about">
-      <h2>About Gaia Sprout</h2>
-      <p>
-        I strive to bridge the gap in improving healthcare accessibility and affordability for the Rwandan population by developing
-        'Gaia Sprout'—a user-friendly platform that leverages telemedicine, proactive disease prevention, remote patient monitoring,
-        home-based nursing, and swift emergency response to empower healthier lives. This project aligns with Rwanda's efforts to improve
-        healthcare quality and accessibility.
-      </p>
-    </section>
-  </main>
+    <!-- Service 2: Mental Health Appointment -->
+    <div class="service-item reverse">
+      <div class="service-image">
+        <img src="Images\service2.jpg" alt="Mental Health Appointment">
+      </div>
+      <div class="service-content">
+        <h3>Mental Health Appointment</h3>
+        <p>Access expert mental health support and therapy sessions tailored to help you maintain emotional and psychological well-being.</p>
+      </div>
+    </div>
+
+    <!-- Service 3: Meal Planning & Weight Management -->
+    <div class="service-item">
+      <div class="service-image">
+        <img src="Images\service3.jpg" alt="Meal Planning and Weight Management">
+      </div>
+      <div class="service-content">
+        <h3>Meal Planning & Weight Management</h3>
+        <p>Receive personalized nutrition plans and weight management strategies designed to help you achieve your health goals effectively.</p>
+      </div>
+    </div>
+
+    <!-- Service 4: Home-Based Nursing -->
+    <div class="service-item reverse">
+      <div class="service-image">
+        <img src="Images\service4.jpg" alt="Home-Based Nursing">
+      </div>
+      <div class="service-content">
+        <h3>Home-Based Nursing</h3>
+        <p>Get professional nursing care at home for chronic conditions, post-surgery recovery, or regular health monitoring in a comfortable environment.</p>
+      </div>
+    </div>
+
+    <!-- Service 5: Chatting with AI -->
+    <div class="service-item">
+      <div class="service-image">
+        <img src="Images\service5.jpg" alt="Chatting with AI">
+      </div>
+      <div class="service-content">
+        <h3>Chatting with AI</h3>
+        <p>Interact with our AI-powered chatbot for quick health advice, symptom assessment, and guidance available 24/7.</p>
+      </div>
+    </div>
+
+    <!-- Service 6: AI Predictive Analytics for Wearables -->
+    <div class="service-item reverse">
+      <div class="service-image">
+        <img src="Images\services 6.webp" alt="AI Predictive Analytics">
+      </div>
+      <div class="service-content">
+        <h3>AI Predictive Analytics for Wearables Devices</h3>
+        <p>Utilize advanced AI analytics integrated with wearable devices to monitor health trends and proactively manage chronic conditions.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
@@ -289,7 +318,11 @@
       </div>
       <div class="footer-section">
         <h4>Quick Links</h4>
-        <p><a href="#">Home</a> <br> <a href="services.html">Services</a> <br> <a href="contact_us.html">Contact Us</a></p>
+        <p>
+          <a href="index.html">Home</a><br>
+          <a href="services.html">Services</a><br>
+          <a href="contact_us.html">Contact Us</a>
+        </p>
       </div>
       <div class="footer-section">
         <h4>Contact Information</h4>
