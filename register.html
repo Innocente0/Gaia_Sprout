@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GAIA SPROUT - Contact Us</title>
+  <title>GAIA SPR0UT - Register</title>
   <style>
     /* Reset */
     * {
@@ -38,11 +38,6 @@
       width: 60px;
       height: auto;
     }
-    .logo-text {
-      font-size: 20px;
-      font-weight: bold;
-      margin-left: 10px;
-    }
     nav a {
       margin: 0 10px;
       text-decoration: none;
@@ -53,31 +48,46 @@
       display: flex;
       align-items: center;
       position: relative;
+      flex-direction: column;
+    }
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+    .language-container {
+      position: relative;
+      margin-top: 5px;
     }
     .language-icon {
       background: #FFFFFF;
       color: #000000;
       padding: 5px 8px;
       border-radius: 50%;
-      margin: 0 20px;
       font-size: 14px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
-    /* Language dropdown list */
+    /* Language dropdown list with icons */
     .language-list {
       list-style: none;
       position: absolute;
       top: 35px;
-      left: 20px;
+      left: 0;
       background: #ffffff;
       color: #000;
       padding: 5px 0;
       display: none;
       border: 1px solid #000;
       border-radius: 4px;
+      width: 150px;
     }
     .language-list li {
       padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
     .language-list li a {
       color: #000;
@@ -93,50 +103,39 @@
       color: #FFFFFF;
       font-weight: bold;
     }
-    /* Main Content with transparent background */
+    /* Main Content */
     main {
       padding: 40px 20px;
       background: transparent;
       color: #000;
     }
-    .contact-heading {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .contact-heading h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-    .contact-heading p {
-      font-size: 18px;
-    }
-    /* Contact container with two columns */
-    .contact-container {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    /* Left Side: Contact Form */
-    .contact-form {
-      flex: 1;
-      min-width: 300px;
-      background: rgba(255, 255, 255, 0.8);
+    /* Form Section Styling */
+    .form-section {
+      margin-bottom: 40px;
       padding: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      color: #000;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       border-radius: 4px;
-      color: #000000;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .contact-form .form-group {
+    .form-section h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+    .form-group {
       margin-bottom: 15px;
     }
-    .contact-form .form-group label {
+    .form-group label {
       display: block;
       margin-bottom: 5px;
       font-weight: bold;
     }
-    .contact-form .form-group input,
-    .contact-form .form-group textarea {
+    .form-group input, 
+    .form-group select {
       width: 100%;
       padding: 8px;
       border: 1px solid #000;
@@ -145,8 +144,9 @@
       background: #fff;
       color: #000;
     }
-    .contact-form button {
-      padding: 10px 20px;
+    button {
+      width: 100%;
+      padding: 10px;
       background: #45A049;
       color: #fff;
       border: none;
@@ -155,30 +155,26 @@
       font-weight: bold;
       margin-top: 10px;
     }
-    .contact-form button:hover {
+    button:hover {
       background: #008080;
     }
-    /* Right Side: Contact Information */
-    .contact-info {
-      flex: 1;
-      min-width: 300px;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      border-radius: 4px;
-      color: #000000;
+    .form-switch {
+      text-align: center;
+      margin-top: 15px;
     }
-    .contact-info .info-item {
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .switch-button {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 8px 15px;
+      background: #45A049;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 2px;
+      transition: background 0.3s;
     }
-    .contact-info .info-item i {
-      font-size: 20px;
-    }
-    .contact-info .info-item span {
-      font-size: 16px;
+    .switch-button:hover {
+      background: #008080;
     }
     /* Footer */
     footer {
@@ -201,7 +197,7 @@
       margin-bottom: 10px;
       font-size: 16px;
     }
-    .footer-section p,
+    .footer-section p, 
     .footer-section a {
       font-size: 14px;
       color: #fff;
@@ -212,12 +208,18 @@
     }
     /* Responsive */
     @media(max-width: 768px) {
-      .contact-container {
+      header, .footer-content {
         flex-direction: column;
+        text-align: center;
+      }
+      .header-center, .header-right, .header-left {
+        margin: 5px 0;
+      }
+      nav a {
+        margin: 5px;
       }
     }
   </style>
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -225,7 +227,7 @@
   <header>
     <div class="header-left">
       <a href="index.html">
-        <img src="Images\Gaia Sprout Logo.png" alt="GAIA SPROUT Logo" class="logo">
+        <img src="Images\Gaia Sprout Logo.png" alt="GAIA SPR0UT Logo" class="logo">
       </a>
     </div>
     <nav>
@@ -250,51 +252,51 @@
 
   <!-- Main Content -->
   <main>
-    <div class="contact-heading">
-      <h1>Contact Us</h1>
-      <p>We're here to help, reach out to us anytime.</p>
-    </div>
-    <div class="contact-container">
-      <!-- Left Side: Contact Form -->
-      <div class="contact-form">
+    <!-- Register Section -->
+    <section class="form-section" id="register-section">
+      <h1>Register</h1>
+      <form action="register_process.php" method="post">
         <div class="form-group">
-          <label for="fullname">Full Name</label>
-          <input type="text" id="fullname" placeholder="Enter your full name">
+          <label for="register-role">Register As:</label>
+          <select id="register-role" name="role">
+            <option value="patient">Patient</option>
+            <option value="nurse">Nurse</option>
+            <option value="doctor">Doctor</option>
+            <option value="chw">CHW</option>
+            <option value="admin">Admin</option>
+          </select>
         </div>
         <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="Enter your email">
+          <label for="first-name">First Name:</label>
+          <input type="text" id="first-name" name="first_name" placeholder="Enter your first name" required>
         </div>
         <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" placeholder="Enter the subject">
+          <label for="last-name">Last Name:</label>
+          <input type="text" id="last-name" name="last_name" placeholder="Enter your last name" required>
         </div>
         <div class="form-group">
-          <label for="message">Message/Inquiry</label>
-          <textarea id="message" rows="5" placeholder="Enter your message"></textarea>
+          <label for="reg-username">Username:</label>
+          <input type="text" id="reg-username" name="username" placeholder="Choose a username" required>
         </div>
-        <button type="submit">Send Message</button>
+        <div class="form-group">
+          <label for="reg-email">Email Address:</label>
+          <input type="email" id="reg-email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Password:</label>
+          <input type="password" id="reg-password" name="password" placeholder="Enter your password (min 8 characters)" minlength="8" required>
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your password" minlength="8" required>
+        </div>
+        <button type="submit">Create Account</button>
+      </form>
+      <div class="form-switch">
+        <p>Already have an account?</p>
+        <a href="login.html" class="switch-button">Login</a>
       </div>
-      <!-- Right Side: Contact Information -->
-      <div class="contact-info">
-        <div class="info-item">
-          <i class="fa fa-map-marker-alt"></i>
-          <span>Address: KN20AV, Kigali</span>
-        </div>
-        <div class="info-item">
-          <i class="fa fa-phone"></i>
-          <span>Phone: +250 788889146</span>
-        </div>
-        <div class="info-item">
-          <i class="fa fa-envelope"></i>
-          <span>Email: info@gaiasprout.com</span>
-        </div>
-        <div class="info-item">
-          <i class="fa fa-clock"></i>
-          <span>Business Hours: 24/7</span>
-        </div>
-      </div>
-    </div>
+    </section>
   </main>
 
   <!-- Footer -->

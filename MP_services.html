@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GAIA SPROUT - Meal Planning & Weight Management</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /* Full-page background image */
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://media.istockphoto.com/id/1286633131/photo/abstract-blur-soft-focus-blue-color-interior-of-modern-cleaning-workplace-background-with.jpg?s=612x612&w=0&k=20&c=TmB2WDwocMUVTA8xe7pjOOL9rHx4KYnFx0RsEi33nxI=') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+    }
+    /* Header - sticky */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      border-bottom: 2px solid #000;
+      background-color: rgb(0, 128, 128);
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      width: 60px;
+      height: auto;
+    }
+    .logo-text {
+      font-size: 20px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #FFFFFF;
+      font-weight: bold;
+    }
+    .header-center {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .language-icon {
+      background: #FFFFFF;
+      color: #000000;
+      padding: 5px 8px;
+      border-radius: 50%;
+      margin: 0 20px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    /* Language dropdown list */
+    .language-list {
+      list-style: none;
+      position: absolute;
+      top: 35px;
+      left: 20px;
+      background: #ffffff;
+      color: #000;
+      padding: 5px 0;
+      display: none;
+      border: 1px solid #000;
+      border-radius: 4px;
+    }
+    .language-list li {
+      padding: 5px 10px;
+    }
+    .language-list li a {
+      color: #000;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .header-center:hover .language-list {
+      display: block;
+    }
+    .header-right a {
+      margin-left: 10px;
+      text-decoration: none;
+      color: #FFFFFF;
+      font-weight: bold;
+    }
+    /* Hero Section */
+    .hero {
+      background: url('https://media.istockphoto.com/id/692438504/photo/workers-silhouette-in-hospital-corridor-unfocused-background.jpg?s=612x612&w=0&k=20&c=_nVNKilnDtdUYjD_FJ-KfKAgsm0dJX06KHOMA2wr4g8=') no-repeat center center/cover;
+      height: 400px;
+      color: #000000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 24px;
+    }
+
+    /* Meal Search Section */
+    .meal-search {
+      text-align: center;
+      padding: 20px;
+      background: rgba(179, 217, 217);
+    }
+    .meal-search h2 {
+      margin-bottom: 10px;
+      color: #000000;
+    }
+    .meal-search p {
+        color: #000000;
+        margin-bottom: 10px;
+    }
+    .meal-search input[type="text"] {
+      width: 250px;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #000;
+      font-size: 14px;
+    }
+    .meal-search button {
+      padding: 8px 16px;
+      margin-left: 5px;
+      background: #45A049;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .meal-search button:hover {
+      background: #008080;
+    }
+
+    /* Content Section for Recipes */
+    .content-section {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px 20px;
+      flex-wrap: wrap;
+      color: #000000;
+      background: rgb(179, 217, 217, 0.5); /* semi-transparent background */
+    }
+    .content-item {
+      width: 30%;
+      min-width: 250px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .content-item img {
+      width: 100%;
+      height: 200px; /* fixed height */
+      object-fit: cover;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* subtle shadow */
+    }
+    .content-item h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    .content-item p {
+      font-size: 16px;
+    }
+    /* Footer */
+    footer {
+      background: #008080;
+      color: #fff;
+      padding: 20px;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+      margin: 10px;
+    }
+    .footer-section h4 {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .footer-section p,
+    .footer-section a {
+      font-size: 14px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .footer-bottom {
+      text-align: center;
+    }
+    /* Responsive */
+    @media(max-width: 768px) {
+      header, .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header-center, .header-right, .header-left {
+        margin: 5px 0;
+      }
+      nav a {
+        margin: 5px;
+      }
+      .content-section {
+        flex-direction: column;
+        align-items: center;
+        color: #000;
+      }
+    }
+  </style>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <a href="index.html">
+        <img src="Images\Gaia Sprout Logo.png" alt="GAIA SPROUT Logo" class="logo">
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="contact_us.html">Contact Us</a>
+      <a href="services.html">Services</a>
+    </nav>
+    <div class="header-center">
+      <span class="language-icon">EN</span>
+      <ul class="language-list">
+        <li><a href="#">Kinyarwanda</a></li>
+        <li><a href="#">French</a></li>
+        <li><a href="#">Kiswahili</a></li>
+        <li><a href="#">English</a></li>
+      </ul>
+    </div>
+    <div class="header-right">
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Meal Search Box -->
+    <section class="meal-search">
+      <h2>Meal Planning & Weight Management</h2>
+      <p>Search our collection of healthy, delicious recipes to support your wellness goals.</p>
+      <div>
+        <input type="text" id="recipeSearch" placeholder="Search for recipes...">
+        <button>Search</button>
+      </div>
+    </section>
+
+    <!-- Meal Cards Section -->
+    <section class="content-section">
+      <!-- 1 -->
+      <div class="content-item">
+        <img src="Images\food1.jpg" alt="Raspberry Yogurt Ice Cream">
+        <h3>Raspberry Yogurt Ice Cream</h3>
+        <p>A refreshing treat high in protein and lower in sugar than store-bought ice cream.</p>
+      </div>
+      <!-- 2 -->
+      <div class="content-item">
+        <img src="Images\food2.jpg" alt="Falafel Waffles">
+        <h3>Falafel Waffles</h3>
+        <p>Crispy chickpea-based waffles packed with fiber and Middle Eastern spices.</p>
+      </div>
+      <!-- 3 -->
+      <div class="content-item">
+        <img src="Images\food3.jpg" alt="Satay Tofu Power Bowl">
+        <h3>Satay Tofu Power Bowl</h3>
+        <p>Peanut-infused tofu with veggies for a protein-packed, plant-based meal.</p>
+      </div>
+      <!-- 4 -->
+      <div class="content-item">
+        <img src="Images\food4.jpg" alt="Healthy Teriyaki Meatballs">
+        <h3>Healthy Teriyaki Meatballs</h3>
+        <p>Lean turkey meatballs glazed in a low-sugar teriyaki sauce for a guilt-free delight.</p>
+      </div>
+      <!-- 5 -->
+      <div class="content-item">
+        <img src="Images\food5.jpg" alt="Avocado Toast with Salmon">
+        <h3>Avocado Toast with Salmon</h3>
+        <p>Heart-healthy fats and lean protein come together for a quick, nutritious breakfast.</p>
+      </div>
+      <!-- 6 -->
+      <div class="content-item">
+        <img src="Images\food6.jpg" alt="Greek Salad Wrap">
+        <h3>Greek Salad Wrap</h3>
+        <p>Feta cheese, cucumber, olives, and tomatoes rolled into a portable lunch option.</p>
+      </div>
+      <!-- 7 -->
+      <div class="content-item">
+        <img src="Images\food7.jpg" alt="Lentil Soup with Spinach">
+        <h3>Lentil Soup with Spinach</h3>
+        <p>A hearty soup rich in iron and protein, perfect for cooler evenings.</p>
+      </div>
+      <!-- 8 -->
+      <div class="content-item">
+        <img src="Images\food8.jpg" alt="Mango Banana Smoothie">
+        <h3>Mango Banana Smoothie</h3>
+        <p>Refreshing tropical flavors with a dose of potassium and vitamins.</p>
+      </div>
+      <!-- 9 -->
+      <div class="content-item">
+        <img src="Images\food9.jpg" alt="Quinoa & Veggie Stir-Fry">
+        <h3>Quinoa & Veggie Stir-Fry</h3>
+        <p>A high-protein alternative to rice, loaded with colorful veggies.</p>
+      </div>
+      <!-- 10 -->
+      <div class="content-item">
+        <img src="Images\food10.jpg" alt="Baked Sweet Potato Fries">
+        <h3>Baked Sweet Potato Fries</h3>
+        <p>Crispy, vitamin-rich fries that satisfy your cravings without the extra oil.</p>
+      </div>
+      <!-- 11 -->
+      <div class="content-item">
+        <img src="Images\food11.jpg" alt="Chicken Caesar Salad">
+        <h3>Chicken Caesar Salad</h3>
+        <p>Classic salad with a light dressing and lean grilled chicken breast.</p>
+      </div>
+      <!-- 12 -->
+      <div class="content-item">
+        <img src="Images\food12.jpg" alt="Zucchini Noodles with Pesto">
+        <h3>Zucchini Noodles with Pesto</h3>
+        <p>Low-carb twist on pasta, topped with fresh basil pesto.</p>
+      </div>
+      <!-- 13 -->
+      <div class="content-item">
+        <img src="Images\food13.jpg" alt="Grilled Shrimp Tacos">
+        <h3>Grilled Shrimp Tacos</h3>
+        <p>Light, flavorful tacos with a citrus marinade and crunchy slaw.</p>
+      </div>
+      <!-- 14 -->
+      <div class="content-item">
+        <img src="Images\food14.jpg" alt="Overnight Oats with Berries">
+        <h3>Overnight Oats with Berries</h3>
+        <p>Prep in advance for a fiber-filled breakfast that’s ready when you wake up.</p>
+      </div>
+      <!-- 15 -->
+      <div class="content-item">
+        <img src="Images\food15.jpg" alt="Eggplant Parmesan Bake">
+        <h3>Eggplant Parmesan Bake</h3>
+        <p>A lighter take on the Italian classic, layered with cheese and tomato sauce.</p>
+      </div>
+      <!-- 16 -->
+      <div class="content-item">
+        <img src="Images\food16.jpg" alt="Turkey & Spinach Lasagna">
+        <h3>Turkey & Spinach Lasagna</h3>
+        <p>Lean turkey and nutrient-dense spinach for a hearty, balanced meal.</p>
+      </div>
+      <!-- 17 -->
+      <div class="content-item">
+        <img src="Images\food17.jpg" alt="Veggie Burger with Guacamole">
+        <h3>Veggie Burger with Guacamole</h3>
+        <p>A satisfying plant-based patty topped with creamy guac and fresh veggies.</p>
+      </div>
+      <!-- 18 -->
+      <div class="content-item">
+        <img src="Images\food18.jpg" alt="Mixed Berry Protein Parfait">
+        <h3>Mixed Berry Protein Parfait</h3>
+        <p>Layers of yogurt, berries, and granola for a nutritious snack or dessert.</p>
+      </div>
+      <!-- 19 -->
+      <div class="content-item">
+        <img src="Images\food19.jpg" alt="Banana Oatmeal Pancakes">
+        <h3>Banana Oatmeal Pancakes</h3>
+        <p>Wholesome pancakes sweetened naturally with ripe bananas.</p>
+      </div>
+      <!-- 20 -->
+      <div class="content-item">
+        <img src="Images\food20.jpg" alt="Brown Rice Sushi Rolls">
+        <h3>Brown Rice Sushi Rolls</h3>
+        <p>A high-fiber alternative to traditional sushi, filled with fresh veggies.</p>
+      </div>
+      <!-- 21 (New) -->
+      <div class="content-item">
+        <img src="Images\food21.jpg" alt="Spicy Cauliflower Wings">
+        <h3>Spicy Cauliflower Wings</h3>
+        <p>Crispy cauliflower florets baked to perfection with a tangy sauce for a guilt-free snack.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Location</h4>
+        <p>KN20AV, Kigali</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <p><a href="#">Home</a> <br> <a href="services.html">Services</a> <br> <a href="contact_us.html">Contact Us</a></p>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Information</h4>
+        <p>Email: info@gaiasprout.com</p>
+        <p>Phone: +250 788889146</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
