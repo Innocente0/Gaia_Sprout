@@ -176,6 +176,25 @@
     .switch-button:hover {
       background: #008080;
     }
+    .button-container {
+  text-align: center;
+}
+
+.submit {
+  display: inline-block;
+  padding: 10px 175px;
+  background-color: #45A049;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 2px;
+  text-align: center;
+  cursor: pointer;
+}
+.submit:hover {
+  background-color: #008080;
+}
+
+
     /* Footer */
     footer {
       background: #008080;
@@ -227,7 +246,7 @@
   <header>
     <div class="header-left">
       <a href="index.html">
-        <img src="Images\Gaia Sprout Logo.png" alt="GAIA SPR0UT Logo" class="logo">
+        <img src="Images/Gaia Sprout Logo.png" alt="GAIA SPR0UT Logo" class="logo">
       </a>
     </div>
     <nav>
@@ -255,7 +274,8 @@
     <!-- Register Section -->
     <section class="form-section" id="register-section">
       <h1>Register</h1>
-      <form action="register_process.php" method="post">
+      <!-- Updated form action to match the backend folder -->
+      <form action="backend/register_process.php" method="post">
         <div class="form-group">
           <label for="register-role">Register As:</label>
           <select id="register-role" name="role">
@@ -290,7 +310,9 @@
           <label for="confirm-password">Confirm Password:</label>
           <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your password" minlength="8" required>
         </div>
-        <button type="submit">Create Account</button>
+        <div class="button-container">
+          <a href="login.html" class="submit">Create Account</a>
+        </div>
       </form>
       <div class="form-switch">
         <p>Already have an account?</p>
@@ -324,5 +346,8 @@
       <p>&copy; 2025. All Rights Reserved.</p>
     </div>
   </footer>
+  
+  <!-- JavaScript File -->
+  <script src="js/register.js"></script>
 </body>
 </html>

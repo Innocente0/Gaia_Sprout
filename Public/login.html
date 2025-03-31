@@ -177,6 +177,24 @@
     .switch-button:hover {
       background: #008080;
     }
+    .button-container {
+  text-align: center;
+}
+.submit {
+  display: inline-block;
+  padding: 10px 210px;
+  background-color: #45A049;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 2px;
+  text-align: center;
+  cursor: pointer;
+}
+.submit:hover {
+  background-color: #008080;
+}
+
+
     /* Footer */
     footer {
       background: #008080;
@@ -275,7 +293,10 @@
           <label for="login-password">Password:</label>
           <input type="password" id="login-password" name="password" placeholder="Enter your password (min 8 characters)" minlength="8" required>
         </div>
-        <button type="submit">Login</button>
+        <div class="button-container">
+          <a href="index.html" class="submit">Login</a>
+        </div>
+        
       </form>
       <div class="form-switch">
         <p>Don't have an account?</p>
@@ -309,5 +330,8 @@
       <p>&copy; 2025. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <!-- JavaScript File -->
+  <script src="js/login.js"></script>
 </body>
 </html>
