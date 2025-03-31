@@ -121,11 +121,20 @@
       font-size: 36px;
       margin-bottom: 30px;
     }
+    /* Each service now appears in its own box with transparent background and shadow */
     .service-item {
       display: flex;
       align-items: center;
       margin-bottom: 40px;
       flex-wrap: wrap;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .service-item:hover {
+      transform: scale(1.02);
     }
     .service-item.reverse {
       flex-direction: row-reverse;
@@ -242,10 +251,11 @@
 
   <!-- Services Section -->
   <section class="services-section">
+
     <!-- Service 1: Medical Appointment -->
     <div class="service-item">
       <div class="service-image">
-        <img src="Images\service1.jpg" alt="Medical Appointment">
+        <img src="Images/service1.jpg" alt="Medical Appointment">
       </div>
       <div class="service-content">
         <h3>Book Your Doctor Appointment</h3>
@@ -256,7 +266,7 @@
     <!-- Service 2: Mental Health Appointment -->
     <div class="service-item reverse">
       <div class="service-image">
-        <img src="Images\service2.jpg" alt="Mental Health Appointment">
+        <img src="Images/service2.jpg" alt="Mental Health Appointment">
       </div>
       <div class="service-content">
         <h3>Mental Health Appointment</h3>
@@ -267,7 +277,7 @@
     <!-- Service 3: Meal Planning & Weight Management -->
     <div class="service-item">
       <div class="service-image">
-        <img src="Images\service3.jpg" alt="Meal Planning and Weight Management">
+        <img src="Images/service3.jpg" alt="Meal Planning and Weight Management">
       </div>
       <div class="service-content">
         <h3>Meal Planning & Weight Management</h3>
@@ -278,7 +288,7 @@
     <!-- Service 4: Home-Based Nursing -->
     <div class="service-item reverse">
       <div class="service-image">
-        <img src="Images\service4.jpg" alt="Home-Based Nursing">
+        <img src="Images/service4.jpg" alt="Home-Based Nursing">
       </div>
       <div class="service-content">
         <h3>Home-Based Nursing</h3>
@@ -289,7 +299,7 @@
     <!-- Service 5: Chatting with AI -->
     <div class="service-item">
       <div class="service-image">
-        <img src="Images\service5.jpg" alt="Chatting with AI">
+        <img src="Images/service5.jpg" alt="Chatting with AI">
       </div>
       <div class="service-content">
         <h3>Chatting with AI</h3>
@@ -300,7 +310,7 @@
     <!-- Service 6: AI Predictive Analytics for Wearables -->
     <div class="service-item reverse">
       <div class="service-image">
-        <img src="Images\services 6.webp" alt="AI Predictive Analytics">
+        <img src="Images/services 6.webp" alt="AI Predictive Analytics">
       </div>
       <div class="service-content">
         <h3>AI Predictive Analytics for Wearables Devices</h3>
@@ -334,5 +344,8 @@
       <p>&copy; 2025. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <!-- Include external JavaScript file -->
+  <script src="js/services-main.js"></script>
 </body>
 </html>

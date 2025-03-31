@@ -117,22 +117,37 @@
       padding: 40px 20px;
       flex-wrap: wrap;
       color: #000000;
-      /* More transparent teal */
       background: rgba(179, 217, 217, 0.5);
+    }
+    .content-section > h4 {
+      width: 100%;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #000000;
     }
     .content-item {
       width: 30%;
       min-width: 250px;
       text-align: center;
       margin-bottom: 20px;
+      /* New styling for a transparent background box with shadow */
+      background: rgba(255, 255, 255, 0.3);
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
-    /* Added shadow and fixed height for consistent shape */
+    .content-item:hover {
+      transform: scale(1.02);
+    }
     .content-item img {
       width: 100%;
-      height: 200px;            /* fixed height */
-      object-fit: cover;        /* preserve aspect ratio within the box */
+      height: 200px;
+      object-fit: cover;
       margin-bottom: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* subtle shadow */
     }
     .content-item h3 {
       margin-bottom: 10px;
@@ -145,7 +160,6 @@
     .about {
       padding: 40px 20px;
       text-align: center;
-      /* More transparent white */
       background: rgba(255, 255, 255, 0.5);
     }
     .about h2 {
@@ -207,6 +221,9 @@
         align-items: center;
         color: #000;
       }
+      .content-item {
+        width: 80%;
+      }
     }
   </style>
   <!-- Font Awesome for icons -->
@@ -217,7 +234,7 @@
   <header>
     <div class="header-left">
       <a href="index.html">
-        <img src="Public/Images/Gaia Sprout Logo.png" alt="GAIA SPROUT Logo" class="logo">
+        <img src="Images/Gaia Sprout Logo.png" alt="GAIA SPROUT Logo" class="logo">
       </a>
     </div>
     <nav>
@@ -227,7 +244,6 @@
     </nav>
     <div class="header-center">
       <span class="language-icon">EN</span>
-
       <ul class="language-list">
         <li><a href="#">Kinyarwanda</a></li>
         <li><a href="#">French</a></li>
@@ -249,8 +265,9 @@
       <p>"Bridging critical gaps in healthcare for a healthier Rwanda."</p>
     </section>
 
-    <!-- Content Section with 3 pictures -->
+    <!-- Content Section with 3 services -->
     <section class="content-section">
+      <h4>Our Featured Services</h4>
       <div class="content-item">
         <img src="Images/heal1.jpg" alt="Mental Health Support Appointment">
         <h3>Mental Health Support Appointment</h3>
@@ -301,5 +318,8 @@
       <p>&copy; 2025. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <!-- Include external JavaScript file -->
+  <script src="js/services.js"></script>
 </body>
 </html>
