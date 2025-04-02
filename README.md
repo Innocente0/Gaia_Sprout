@@ -32,7 +32,7 @@ Below is the project folder structure:
 
 GaiaSprout/ 
 Publuc/
-    ├── Images/ *Image assets (logos, backgrounds, doctor photos, etc.) 
+    ├── Images/ *Image assets (logos, backgrounds, doctor photos, etc.)
     ├── js/ *JavaScript files (e.g., login.js, register.js) 
 ├── index.html *homepage
 ├── login.html *Login page 
