@@ -106,7 +106,6 @@
     /* Main Content */
     main {
       padding: 40px 20px;
-      /* Removed the overlay background so the page background image shows through */
       background: transparent;
       color: #000;
     }
@@ -114,7 +113,6 @@
     .form-section {
       margin-bottom: 40px;
       padding: 20px;
-      /* Semi-transparent white background to blend with the overall page */
       background: rgba(255, 255, 255, 0.8);
       color: #000;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
@@ -178,23 +176,21 @@
       background: #008080;
     }
     .button-container {
-  text-align: center;
-}
-.submit {
-  display: inline-block;
-  padding: 10px 210px;
-  background-color: #45A049;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 2px;
-  text-align: center;
-  cursor: pointer;
-}
-.submit:hover {
-  background-color: #008080;
-}
-
-
+      text-align: center;
+    }
+    .submit {
+      display: inline-block;
+      padding: 10px 210px;
+      background-color: #45A049;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 2px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .submit:hover {
+      background-color: #008080;
+    }
     /* Footer */
     footer {
       background: #008080;
@@ -294,13 +290,12 @@
           <input type="password" id="login-password" name="password" placeholder="Enter your password (min 8 characters)" minlength="8" required>
         </div>
         <div class="button-container">
-          <a href="index.html" class="submit">Login</a>
+          <a href="#" class="submit" id="login-btn">Login</a>
         </div>
-        
       </form>
       <div class="form-switch">
         <p>Don't have an account?</p>
-        <a href="register.html" class="switch-button">Create an Account</a>
+        <a href="#" class="switch-button" id="create-account-btn">Create an Account</a>
       </div>
     </section>
   </main>

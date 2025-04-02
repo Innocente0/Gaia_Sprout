@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Map each service's index to a target page URL
     // Adjust these URLs as needed when you create the pages later.
     const servicePages = [
-      'appointment.html',       // Service 1: Book Your Doctor Appointment
-      'mental_health.html',     // Service 2: Mental Health Appointment
+      'patient_booking.html',       // Service 1: Book Your Doctor Appointment
+      'patient_booking.html',     // Service 2: Mental Health Appointment 
       'meal_plan.html',          // Service 3: Meal Planning & Weight Management
       'home_nursing.html',      // Service 4: Home-Based Nursing
       'chat_ai.html',           // Service 5: Chatting with AI

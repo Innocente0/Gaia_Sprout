@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let targetURL = '';
         switch(index) {
           case 0:
-            targetURL = 'appointment.html';  // Mental Health Support Appointment
+            targetURL = 'patient_booking.html';  // Mental Health Support Appointment
             break;
           case 1:
             targetURL = 'emergency.html';      // Emergency Medical Response Integration
